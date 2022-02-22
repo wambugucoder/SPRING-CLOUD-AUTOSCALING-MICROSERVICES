@@ -1,0 +1,39 @@
+spring:
+  profiles:
+    active: zone1
+  main:
+    allow-circular-references: true
+  application:
+    name: AUTHSERVICE
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: root
+    password: root
+    url: jdbc:postgresql://localhost:5432/sample_db
+  jpa:
+    generate-ddl: true
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database: postgresql
+# SERVER CONFIG
+server:
+  servlet:
+    context-path: /api/auth
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    region: region-1
+    prefer-same-zone-eureka: true
+    service-url:
+      zone1: http://localhost:8761/eureka/
+      zone2: http://127.0.0.1:8762/eureka/
+    availability-zones:
+      region-1: zone1,zone2
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

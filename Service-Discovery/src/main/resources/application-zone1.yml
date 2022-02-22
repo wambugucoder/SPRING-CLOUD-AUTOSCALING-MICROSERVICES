@@ -1,0 +1,7 @@
+server:
+  port: 8761
+
+eureka:
+  instance:
+    metadataMap.zone: zone1
+    hostname: localhost

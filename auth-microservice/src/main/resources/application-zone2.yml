@@ -1,0 +1,9 @@
+server:
+  port: ${PORT:0}
+
+eureka:
+  instance:
+    statusPageUrlPath: http://localhost:8083/api/auth/actuator/info
+    healthCheckUrlPath: http://localhost:8083/api/auth/actuator/health
+    metadataMap.zone: zone2
+    hostname: localhost
