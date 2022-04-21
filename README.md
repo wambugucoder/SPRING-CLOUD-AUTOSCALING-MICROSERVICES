@@ -30,7 +30,7 @@ eureka:
 The first stage of our pipeline is responsible for fetching a list of services registered on the service discovery server. Eureka exposes HTTP API with several endpoints. One of them is GET /eureka/apps/{serviceName}, which returns a list of all instances of application with given name. We are saving the number of running instances and the URL of metrics endpoint of every single instance. These values would be accessed during the next stages of the pipeline.
 
 ## Integrating Jenkins Pipeline With Spring Boot Actuator Metrics
-Spring Boot Actuator exposes endpoint with metrics, which allows us to find the metric by name and optionally by tag. In the fragment of pipeline visible below, I'm trying to find the instance with metric below or above a defined threshold. If there is such an instance we stop the loop in order to proceed to the next stage, which performs scaling down or up. The IP addresses of running applications are taken from pipeline environment variable with prefix INSTANCE_, which has been saved in the previous stage..
+Spring Boot Actuator exposes endpoint with metrics, which allows us to find the metric by name and optionally by tag. In the fragment of pipeline visible below, I'm trying to find the instance with metric below or above a defined threshold. If there is such an instance we stop the loop in order to proceed to the next stage, which performs scaling down or up. The IP addresses of running applications are taken from pipeline environment variable with prefix INSTANCE_, which was saved in the previous stage..
 
 
 
